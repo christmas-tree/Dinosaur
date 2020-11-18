@@ -22,8 +22,7 @@ var Road = cc.Sprite.extend({
         var selChild, children = this.getChildren();
         for (var i = 0; i < children.length; i++) {
             selChild = children[i];
-            if (selChild.active && (selChild.x + this.x <= 0)) {
-                cc.log("unit destroyed from road" + this.count);
+            if (selChild.active && (selChild.x + this.x + selChild.width <= 0)) {
                 selChild.destroy();
             }
         }

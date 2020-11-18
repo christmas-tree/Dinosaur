@@ -1,13 +1,12 @@
 STATE_PLAYING = 0;
 STATE_GAMEOVER = 1;
+STATE_PAUSE = 2;
 MAX_CONTAINT_WIDTH = 40;
 MAX_CONTAINT_HEIGHT = 40;
 
 var g_sharedGameLayer;
 
 var GameLayer = cc.Layer.extend({
-    _time: null,
-    _tmpScore: 0,
     _dinosaur: null,
     _background: null,
     _backgroundRe: null,
@@ -16,8 +15,7 @@ var GameLayer = cc.Layer.extend({
     _roadRe: null,
     _roadLength: 10,
     lbScore: null,
-    // screenRect: null,
-    _state: STATE_PLAYING,
+    _state: STATE_PAUSE,
     distSinceLastObstacle: 0,
     lastObstacleShown: false,
     speed: MW.INITIAL_SPEED,
@@ -37,23 +35,39 @@ var GameLayer = cc.Layer.extend({
         MW.CONTAINER.ROADS = [];
 
         MW.SCORE = 0;
-        this._state = STATE_PLAYING;
-
         this._levelManager = new LevelManager(this);
 
         // this.screenRect = cc.rect(0, 0, winSize.width, winSize.height + 10);
 
         // score label
-        this.lbScore = cc.LabelTTF.create("Moves: 0", "Arial", "32.0", null, cc.TEXT_ALIGNMENT_CENTER, cc.VERTICAL_TEXT_ALIGNMENT_CENTER);
-        // this.lbScore.setPosition(90,50);
+        // this.lbScore = cc.LabelTTF.create("0", "Arial Bold", 32, null, cc.TEXT_ALIGNMENT_RIGHT, cc.VERTICAL_TEXT_ALIGNMENT_TOP);
+        this.lbScore = cc.LabelTTF.create("0", "Press Start 2P Regular", 32, null, cc.TEXT_ALIGNMENT_RIGHT, cc.VERTICAL_TEXT_ALIGNMENT_TOP);
+        this.lbScore.attr({
+            x: winSize.width - 350,
+            y: winSize.height - 200,
+            anchorX: 1.0,
+            anchorY: 1.0,
+            color: cc.BLACK
+        });
         this.addChild(this.lbScore, 1000);
+
+        // this.lbHighScore = cc.LabelTTF.create("0", "Arial Bold", 32, null, cc.TEXT_ALIGNMENT_RIGHT, cc.VERTICAL_TEXT_ALIGNMENT_TOP);
+        this.lbHighScore = cc.LabelTTF.create("0", "Press Start 2P Regular", 32, null, cc.TEXT_ALIGNMENT_RIGHT, cc.VERTICAL_TEXT_ALIGNMENT_TOP);
+        this.lbHighScore.attr({
+            x: this.lbScore.x - this.lbScore.width - 60,
+            y: winSize.height - 200,
+            anchorX: 1.0,
+            anchorY: 1.0,
+            color: cc.BLACK
+        });
+        this.addChild(this.lbHighScore, 1000);
 
         // this.addTouchListener();
         this.addKeyboardListener();
 
         // schedule
         this.scheduleUpdate();
-        this.schedule(this.scoreCounter, 1);
+        this.schedule(this.loadLevelResource, 1);
         this.schedule(this.increaseSpeed, 1);
 
         // if (MW.SOUND)
@@ -80,46 +94,40 @@ var GameLayer = cc.Layer.extend({
         this._dinosaur.setY(this._dinosaur.y + this._road.height);
         this.addChild(this._dinosaur);
 
+        this.addChild(new ScreenMenu());
+
         return true;
     },
 
-
-    // !TODO:
-    // addTouchListener: function () {
-    //     var self = this;
-    //     cc.eventManager.addListener({
-    //         event: cc.EventListener.TOUCH_ONE_BY_ONE,
-    //         swallowTouches: true,
-    //         onTouchBegan: function (touch, event) {
-    //             return true;
-    //         },
-    //         onTouchMoved: (touch, event) => {
-    //             var touchDelta = touch.getDelta();
-    //             cc.log(touchDelta.x);
-    //             cc.log(touchDelta.y);
-    //             var newPos = cc.p(self._dinosaur.x + touchDelta.x, self._dinosaur.y + touchDelta.y);
-    //             this._dinosaur.setPosition(newPos);
-    //         },
-    //     }, this);
-    // },
-
     addKeyboardListener: function () {
+        var self = this;
         cc.eventManager.addListener({
             event: cc.EventListener.KEYBOARD,
             onKeyPressed: function (key, event) {
+                if (self._state === STATE_PAUSE && key === cc.KEY.space) {
+                    self.startGame();
+                }
                 MW.PRESSED_KEY = key;
             },
+            onKeyReleased: function (key, event) {
+                if (MW.PRESSED_KEY === key) {
+                    MW.PRESSED_KEY = null;
+                }
+            }
         }, this);
     },
 
     increaseSpeed: function () {
-        this.speed += MW.SPEED_INCREASE_RATE;
+        var newSpeed = this.speed + MW.SPEED_INCREASE_RATE;
+        if (newSpeed <= MW.SPEED_MAX) {
+            this.speed = newSpeed;
+        }
         MW.OBSTACLE_DIST = 300;
     },
 
-    scoreCounter: function () {
+    loadLevelResource: function () {
         if (this._state === STATE_PLAYING) {
-            this._time++;
+            this._levelManager.switchLevel();
             this._levelManager.loadLevelResource();
         }
     },
@@ -127,74 +135,99 @@ var GameLayer = cc.Layer.extend({
     update: function (dt) {
         if (this._state === STATE_PLAYING) {
             this.checkIsCollide();
-            this.updateUI();
-            // this._movingBackground(dt);
+            this._movingBackground(dt);
             this._movingRoad(dt);
             this._road.removeInactiveUnit();
+            this.updateScore();
         }
     },
     checkIsCollide: function () {
-        var selChild;
-
+        var selChild, collide = false;
         // check collide
         var dinosaur = this._dinosaur;
         for (var i = 0; i < MW.CONTAINER.CACTI.length; i++) {
             selChild = MW.CONTAINER.CACTI[i];
             if (!selChild.active)
                 continue;
-
             if (this.collide(selChild, dinosaur)) {
-                if (dinosaur.active) {
-                    this._state = STATE_GAMEOVER;
-                    this._dinosaur = null;
-                    this.runAction(cc.sequence(
-                        cc.delayTime(0.2),
-                        cc.callFunc(this.onGameOver, this)
-                    ));
+                collide = true;
+            }
+        }
+        if (!collide) {
+            for (i = 0; i < MW.CONTAINER.BIRDS.length; i++) {
+                selChild = MW.CONTAINER.BIRDS[i];
+                if (!selChild.active)
+                    continue;
+                if (this.collide(selChild, dinosaur)) {
+                    collide = true;
                 }
             }
         }
-    },
-    updateUI: function () {
-        if (this._tmpScore < MW.SCORE) {
-            this._tmpScore += 1;
+
+        if (collide && dinosaur.active) {
+            this._state = STATE_GAMEOVER;
+            this._dinosaur.destroy();
+            this._dinosaur = null;
+            this.runAction(cc.sequence(
+                cc.delayTime(0.2),
+                cc.callFunc(this.onGameOver, this)
+            ));
         }
-        this.lbScore.setString("Score: " + this._tmpScore);
+    },
+    updateScore: function () {
+        MW.SCORE += 1;
+        if (MW.SCORE > MW.HIGH_SCORE) {
+            var blink = cc.Blink.create(2, 5);
+            MW.HIGH_SCORE = MW.SCORE;
+            this.lbHighScore.setString(String(MW.HIGH_SCORE));
+            this.lbHighScore.runAction(blink);
+        }
+        this.lbScore.setString(String(MW.SCORE));
+        this.lbHighScore.x = this.lbScore.x - this.lbScore.width - 60;
     },
     collide: function (a, b) {
         var aRect = a.getBoundingBoxToWorld();
         var bRect = b.getBoundingBoxToWorld();
+
+        aRect.width *= 0.95;
+        aRect.height *= 0.95;
+        bRect.width *= 0.95;
+        aRect.height *= 0.95;
+
         return cc.rectIntersectsRect(aRect, bRect);
     },
 
     _movingBackground: function (dt) {
-        var movingDist = 0.5 * this.speed * dt;
+        var movingDist = this.speed * dt;
 
-        var locBackDistance = this._backgroundLength, locBackSky = this._background;
-        var currPosX = locBackSky.x - movingDist;
-        var locBackSkyRe = this._backgroundRe;
+        var locBackgroundLength = this._backgroundLength, locBackground = this._background;
+        var currPosX = locBackground.x - movingDist;
+        var locBackgroundRe = this._backgroundRe;
 
-        if (locBackDistance + currPosX <= winSize.width) {
-            if (locBackSkyRe != null)
+        if (locBackgroundLength + currPosX <= winSize.width) {
+            cc.log("locBackgroundLength: " + locBackgroundLength);
+            cc.log("currPosX: " + currPosX);
+
+            if (locBackgroundRe != null)
                 throw "The memory is leaking at moving background";
-            locBackSkyRe = this._background;
+            locBackgroundRe = this._background;
             this._backgroundRe = this._background;
 
             //create a new background
             this._background = ScrollingBackground.getOrCreate();
-            locBackSky = this._background;
-            locBackSky.x = currPosX + locBackDistance - 5;
+            locBackground = this._background;
+            locBackground.x = currPosX + locBackgroundLength - 5;
         } else {
-            locBackSky.x = currPosX;
+            locBackground.x = currPosX;
         }
 
-        if (locBackSkyRe) {
-            currPosX = locBackSkyRe.x - movingDist;
-            if (currPosX + locBackDistance < 0) {
-                locBackSkyRe.destroy();
+        if (locBackgroundRe) {
+            currPosX = locBackgroundRe.x - movingDist;
+            if (currPosX + locBackgroundLength < 0) {
+                locBackgroundRe.destroy();
                 this._backgroundRe = null;
             } else
-                locBackSkyRe.x = currPosX;
+                locBackgroundRe.x = currPosX;
         }
     },
     _movingRoad: function (dt) {
@@ -206,8 +239,7 @@ var GameLayer = cc.Layer.extend({
 
         if (this._road.lastObstacle &&
             this._road.lastObstacle.x + this._road.x <= winSize.width
-            && !this.lastObstacleShown)
-        {
+            && !this.lastObstacleShown) {
             this.distSinceLastObstacle = 0;
             this.lastObstacleShown = true;
         } else {
@@ -237,20 +269,24 @@ var GameLayer = cc.Layer.extend({
                 locRoadRe.x = currPosX;
         }
     },
+    startGame: function () {
+        this._dinosaur.run();
+        this._state = STATE_PLAYING;
+    },
     onGameOver: function () {
         // cc.audioEngine.stopMusic();
         // cc.audioEngine.stopAllEffects();
-        var scene = new cc.Scene();
-        scene.addChild(new GameOverLayer());
-        cc.director.runScene(new cc.TransitionFade(1.2, scene));
+        this.unscheduleAllCallbacks();
+        this._gameOverLayer = new GameOverLayer();
+        this.addChild(this._gameOverLayer);
     },
 
-    addCactus: function (cactus) {
+    addObstacle: function (obstacle) {
         var locRoad = this._road;
-        locRoad.addChild(cactus);
-        this._road.lastObstacle = cactus;
+        locRoad.addChild(obstacle);
+        this._road.lastObstacle = obstacle;
         this.lastObstacleShown = false;
-    }
+    },
 });
 
 GameLayer.scene = function () {

@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e4d55f2b-12a8-484d-a811-f49e89a3e91c" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/src/Background.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Background.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameLayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameLayer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameOverLayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameOverLayer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LevelManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/LevelManager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/CactusType.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/CactusType.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/GameConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/GameConfig.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/Levels.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/Levels.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mainmenu/ScreenMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainmenu/ScreenMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Bird.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Bird.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Dinosaur.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Dinosaur.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Road.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Road.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DatabaseView">
+    <option name="FLATTEN" value="false" />
+    <option name="GROUP_BY_TYPE" value="true" />
+    <option name="SORT_CHILDREN" value="false" />
+    <option name="SHOW_TABLE_CONSTRAINTS" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="true" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Bundled (Maven 3)" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1kOmzPoFUJPPd0j3kBC6pWIOt9E" />
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Buildout</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="FullScreen" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/Project/lgrc_project/client/HelloJavascript/src/framework/Framework.js" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/res" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="options.lastSelected" value="web-ide.project.structure" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="recentsLimit" value="5" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\localuser\Desktop\Dino\res" />
+      <recent name="C:\Users\localuser\Desktop\GameClientJS\src" />
+      <recent name="D:\Project\TemplateGame\src\framework\plugins" />
+      <recent name="D:\Project\lgrc_project\client\HelloJavascript\src\network\auto" />
+      <recent name="D:\Project\lgrc_project\client\HelloJavascript\src\game\render\effect" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\localuser\Desktop\Dino\src" />
+      <recent name="C:\Users\localuser\Desktop\Dino\src\models" />
+      <recent name="D:\Project\TemplateGame\src\framework" />
+      <recent name="D:\Project\lgrc_project\client\HelloJavascript\src\framework\gui" />
+      <recent name="D:\Project\lgrc_project\client\HelloJavascript\src\framework\libs" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JSBinding.Win32Debug">
+    <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
+      <option name="BCName" value="" />
+      <option name="IOSSimulatorSdkPath" value="" />
+      <option name="adlOptions" value="" />
+      <option name="airProgramParameters" value="" />
+      <option name="appDescriptorForEmulator" value="Android" />
+      <option name="debugTransport" value="USB" />
+      <option name="debuggerSdkRaw" value="BC SDK" />
+      <option name="emulator" value="NexusOne" />
+      <option name="emulatorAdlOptions" value="" />
+      <option name="fastPackaging" value="true" />
+      <option name="fullScreenHeight" value="0" />
+      <option name="fullScreenWidth" value="0" />
+      <option name="launchUrl" value="false" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="FlashPlayerDebugger.exe" />
+        </LauncherParameters>
+      </option>
+      <option name="mobileRunTarget" value="Emulator" />
+      <option name="moduleName" value="" />
+      <option name="overriddenMainClass" value="" />
+      <option name="overriddenOutputFileName" value="" />
+      <option name="overrideMainClass" value="false" />
+      <option name="runTrusted" value="true" />
+      <option name="screenDpi" value="0" />
+      <option name="screenHeight" value="0" />
+      <option name="screenWidth" value="0" />
+      <option name="url" value="http://" />
+      <option name="usbDebugPort" value="7936" />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
+      <option name="BCName" value="" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="FlashPlayerDebugger.exe" />
+        </LauncherParameters>
+      </option>
+      <option name="moduleName" value="" />
+      <option name="trusted" value="true" />
+      <method />
+    </configuration>
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" uri="http://localhost:63342/HelloJavascript/index.html">
+      <RunnerSettings RunnerId="JavascriptDebugRunner" />
+      <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
+      <method v="2" />
+    </configuration>
+    <configuration name="InPacketGenerate.js" type="NodeJSConfigurationType" temporary="true" path-to-node="$PROJECT_DIR$/../../../../Program Files/nodejs/node" path-to-js-file="InPacketFactory.js" working-dir="$PROJECT_DIR$/src/network">
+      <RunnerSettings RunnerId="NodeJS.debug" />
+      <RunnerSettings RunnerId="NodeJS.run" />
+      <ConfigurationWrapper RunnerId="NodeJS.debug" />
+      <ConfigurationWrapper RunnerId="NodeJS.run" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Win32Debug" type="#org.ccdt.lua.launch.CocosJSConfigurationType" factoryName="JSBinding" temporary="true">
+      <first key="runtime_arguments" stringValue="" />
+      <first key="force_update_entry_file" booleanValue="true" />
+      <first key="disable_live_coding" booleanValue="false" />
+      <first key="disable_using_upload" booleanValue="false" />
+      <first key="argument_map">
+        <second key="macruntime" stringValue="" />
+        <second key="win32runtime" stringValue="simulator\win32\GameClientJS.exe" />
+        <second key="connector_id" stringValue="jsbinding.win32.attach.connector" />
+        <second key="remotePlatform" stringValue="Android" />
+        <second key="host" stringValue="127.0.0.1" />
+        <second key="androidruntime" stringValue="C:\Program Files (x86)\Cocos\cocos-simulator-bin\android\Simulator.apk" />
+        <second key="iosruntime" stringValue="" />
+      </first>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.ccdt.lua.launch.CocosJSConfigurationType" factoryName="JSBinding">
+      <first key="argument_map">
+        <second key="win32runtime" stringValue="runtime/win32/PrebuiltRuntimeJs.exe" />
+        <second key="connector_id" stringValue="jsbinding.win32.attach.connector" />
+        <second key="remotePlatform" stringValue="Android" />
+        <second key="host" stringValue="127.0.0.1" />
+        <second key="androidruntime" stringValue="runtime/android/PrebuiltRuntimeJs.apk" />
+      </first>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <pass-parent-envs>true</pass-parent-envs>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.index.html" />
+      <item itemvalue="JSBinding.Win32Debug" />
+      <item itemvalue="Node.js.InPacketGenerate.js" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JSBinding.Win32Debug" />
+        <item itemvalue="JavaScript Debug.index.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e4d55f2b-12a8-484d-a811-f49e89a3e91c" name="Default" comment="" />
+      <created>1431480896373</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1431480896373</updated>
+      <workItem from="1432812091019" duration="18662000" />
+      <workItem from="1432887283452" duration="162093000" />
+      <workItem from="1434439675188" duration="83122000" />
+      <workItem from="1434937890569" duration="4137000" />
+      <workItem from="1434955618669" duration="14683000" />
+      <workItem from="1435124419380" duration="7594000" />
+      <workItem from="1435214654978" duration="14560000" />
+      <workItem from="1435552371398" duration="155000" />
+      <workItem from="1435560378302" duration="2151000" />
+      <workItem from="1435573018873" duration="2227000" />
+      <workItem from="1435628207786" duration="2041000" />
+      <workItem from="1435632676525" duration="9980000" />
+      <workItem from="1435724159774" duration="4320000" />
+      <workItem from="1435733659832" duration="16757000" />
+      <workItem from="1436148910991" duration="1192000" />
+      <workItem from="1436151207854" duration="6332000" />
+      <workItem from="1436171382474" duration="1864000" />
+      <workItem from="1436178251421" duration="195379000" />
+      <workItem from="1438052245944" duration="11588000" />
+      <workItem from="1438240497508" duration="2374000" />
+      <workItem from="1438315601905" duration="8379000" />
+      <workItem from="1438657283328" duration="10189000" />
+      <workItem from="1438833833322" duration="21000" />
+      <workItem from="1438843563848" duration="43091000" />
+      <workItem from="1439460928099" duration="303000" />
+      <workItem from="1439463736111" duration="27211000" />
+      <workItem from="1439889665918" duration="45471000" />
+      <workItem from="1440384880290" duration="2326000" />
+      <workItem from="1440578071077" duration="46188000" />
+      <workItem from="1440985195277" duration="20186000" />
+      <workItem from="1441247813260" duration="48651000" />
+      <workItem from="1441681249731" duration="10846000" />
+      <workItem from="1441779278187" duration="55632000" />
+      <workItem from="1442199677799" duration="13521000" />
+      <workItem from="1442381980491" duration="1715000" />
+      <workItem from="1442386551568" duration="546000" />
+      <workItem from="1442389568178" duration="25892000" />
+      <workItem from="1442483314308" duration="8255000" />
+      <workItem from="1442549592472" duration="17427000" />
+      <workItem from="1443331699743" duration="51894000" />
+      <workItem from="1443669234653" duration="28870000" />
+      <workItem from="1444013048308" duration="41000" />
+      <workItem from="1444206295808" duration="33471000" />
+      <workItem from="1444617949609" duration="37970000" />
+      <workItem from="1445222190375" duration="343000" />
+      <workItem from="1445223472256" duration="55000" />
+      <workItem from="1445225423168" duration="144000" />
+      <workItem from="1445226939028" duration="16806000" />
+      <workItem from="1445315496687" duration="32363000" />
+      <workItem from="1445822064906" duration="25502000" />
+      <workItem from="1445909069419" duration="32471000" />
+      <workItem from="1446437463506" duration="42698000" />
+      <workItem from="1446622029865" duration="24307000" />
+      <workItem from="1446706650165" duration="51198000" />
+      <workItem from="1447120720941" duration="58502000" />
+      <workItem from="1447492362281" duration="11955000" />
+      <workItem from="1447648297554" duration="24075000" />
+      <workItem from="1447750126043" duration="89367000" />
+      <workItem from="1449025688782" duration="29759000" />
+      <workItem from="1449198485836" duration="20628000" />
+      <workItem from="1449304065604" duration="4122000" />
+      <workItem from="1449400324707" duration="24334000" />
+      <workItem from="1449557092962" duration="3898000" />
+      <workItem from="1449659377623" duration="56000" />
+      <workItem from="1526895582240" duration="26433000" />
+      <workItem from="1527840645028" duration="229000" />
+      <workItem from="1528682447124" duration="243000" />
+      <workItem from="1549940807002" duration="4756000" />
+      <workItem from="1550045081700" duration="5756000" />
+      <workItem from="1550114779967" duration="5014000" />
+      <workItem from="1550572854747" duration="374000" />
+      <workItem from="1550633911057" duration="32656000" />
+      <workItem from="1551153366080" duration="15000" />
+      <workItem from="1551931734807" duration="68000" />
+      <workItem from="1552028738912" duration="21000" />
+      <workItem from="1553831685560" duration="3045000" />
+      <workItem from="1605070248077" duration="808000" />
+      <workItem from="1605580275228" duration="270000" />
+      <workItem from="1605580593138" duration="463000" />
+      <workItem from="1605581182794" duration="10885000" />
+      <workItem from="1605574302105" duration="17833000" />
+      <workItem from="1605597940147" duration="12698000" />
+      <workItem from="1605660793035" duration="2462000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="415" height="283" key="GridCell.Tab.0.bottom" timestamp="1605663306930">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="279" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605593433985" />
+    <state width="415" height="283" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1605663306930" />
+    <state width="415" height="283" key="GridCell.Tab.0.center" timestamp="1605663306930">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="279" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1605593433984" />
+    <state width="415" height="283" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1605663306930" />
+    <state width="415" height="283" key="GridCell.Tab.0.left" timestamp="1605663306930">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="279" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1605593433984" />
+    <state width="415" height="283" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1605663306930" />
+    <state width="415" height="283" key="GridCell.Tab.0.right" timestamp="1605663306930">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="279" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1605593433985" />
+    <state width="415" height="283" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1605663306930" />
+    <state x="667" y="253" width="585" height="534" key="find.popup" timestamp="1605660931097">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="416" y="184" width="549" height="534" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1605592116888" />
+    <state x="667" y="253" width="585" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1605660931097" />
+    <state x="539" y="183" width="840" height="856" key="search.everywhere.popup" timestamp="1605608897573">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1605585652266" />
+    <state x="539" y="183" width="840" height="856" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1605608897573" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="cocos javascript">
+          <url>file://$PROJECT_DIR$/simulator/win32/script/jsb_boot.js</url>
+          <line>449</line>
+          <option name="timeStamp" value="159" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="cocos javascript">
+          <url>file://$PROJECT_DIR$/frameworks/js-bindings/api/jsb_cocos2dx_auto_api.js</url>
+          <line>20903</line>
+          <option name="timeStamp" value="162" />
+        </line-breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint enabled="true" suspend="THREAD" type="java-exception" />
+        <breakpoint enabled="true" log-message="true" type="javascript-exception" />
+      </default-breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="Copyright.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>Kahlua</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>HelloJavascript</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

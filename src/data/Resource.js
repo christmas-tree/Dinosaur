@@ -5,24 +5,26 @@
 
 var res = {
     //font
-    FONT_BITMAP_NUMBER_1:"fonts/number_1.fnt",
+    FONT_BITMAP_NUMBER_1: "fonts/number_1.fnt",
     FONT_BITMAP_DICE_NUMBER: "fonts/diceNumber.fnt",
     //zcsd
     //screen
-    ZCSD_SCREEN_MENU:"zcsd/screen_menu.json",
-    ZCSD_SCREEN_NETWORK:"zcsd/screen_network.json",
-    ZCSD_SCREEN_LOCALIZATION:"zcsd/screen_localize.json",
-    ZCSD_SCREEN_DRAGON_BONES:"zcsd/screen_dragon_bones.json",
-    ZCSD_SCREEN_DECRYPTION:"zcsd/screen_decryption.json",
-    ZCSD_SCREEN_ZALO:"zcsd/screen_zalo.json",
+    ZCSD_SCREEN_MENU: "zcsd/screen_menu.json",
+    ZCSD_SCREEN_NETWORK: "zcsd/screen_network.json",
+    ZCSD_SCREEN_LOCALIZATION: "zcsd/screen_localize.json",
+    ZCSD_SCREEN_DRAGON_BONES: "zcsd/screen_dragon_bones.json",
+    ZCSD_SCREEN_DECRYPTION: "zcsd/screen_decryption.json",
+    ZCSD_SCREEN_ZALO: "zcsd/screen_zalo.json",
     //popup
-    ZCSD_POPUP_MINI_GAME:"zcsd/game/mini_game/PopupMiniGame.json",
+    ZCSD_POPUP_MINI_GAME: "zcsd/game/mini_game/PopupMiniGame.json",
 
     //images
-    Slot1_png : "zcsd/slot1.png",
+    Slot1_png: "zcsd/slot1.png",
 
     game_plist: "res/img/data.plist",
-    game_png: "res/img/data.png"
+    game_png: "res/img/data.png",
+    press_start_ttf: {type: "font", name: "IndieFlower", srcs: ["res/fonts/PressStart2P-Regular.ttf"]},
+
 };
 
 var g_resources = [
@@ -80,3 +82,11 @@ var g_resources = [
     "res/img/data.plist",
     "res/img/data.png"
 ];
+
+var _b_getFontName = function (resource) {
+    if (cc.sys.isNative) {
+        return resource.srcs[0];
+    } else {
+        return resource.name;
+    }
+}

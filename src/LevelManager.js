@@ -13,48 +13,46 @@ var LevelManager = cc.Class.extend({
 
     switchLevel: function () {
         if (this._currentLevel === levels.length - 1) return;
-        if (levels[this._currentLevel] >= levels[this._currentLevel + 1]) {
+        if (MW.SCORE >= levels[this._currentLevel + 1].minScore) {
             this._currentLevel += 1;
         }
     },
 
     loadLevelResource: function () {
         if (g_sharedGameLayer.distSinceLastObstacle < MW.OBSTACLE_DIST) {
-            cc.log("Try to add new cactus: " + g_sharedGameLayer.distSinceLastObstacle);
             return;
         }
 
         //load cactus
         var locLevel = levels[this._currentLevel];
-        if (locLevel.hasMultipleCacti) {
-            var types = ['single', 'multi'];
-            var randomChoice = types[Math.floor(Math.random() * types.length)];
-            this.addCactusToRoad(randomChoice);
-        } else {
-            this.addCactusToRoad('single');
-        }
+        var newObstacleType = locLevel.obstacles[Math.floor(Math.random() * locLevel.obstacles.length)]
 
-        // if (locLevel.hasBirds) {
-        //     // add birds
-        // }
-        //
-        // if (locLevel.hasDarkMode) {
-        //     // add dark mode
-        // }
+        var obs;
+        switch (newObstacleType) {
+            case 'singleCacti':
+                obs = Cactus.getOrCreateCactus('single');
+                this.addObstacleToRoad(obs);
+                break;
+            case 'multiCacti':
+                obs = Cactus.getOrCreateCactus('multi');
+                this.addObstacleToRoad(obs);
+                break;
+            case 'birds':
+                obs = Bird.getOrCreateBird();
+                obs.y = g_sharedGameLayer._dinosaur.height * (1 + 1.5 * Math.random());
+                this.addObstacleToRoad(obs);
+                break;
+            case 'nightMode':
+                break;
+        }
     },
 
-    addCactusToRoad: function (cactusType) {
-        cc.log("Adding new cactus: " + g_sharedGameLayer.distSinceLastObstacle);
-
+    addObstacleToRoad: function (obstacle) {
         var locRoad = g_sharedGameLayer._road, locRoadLength = g_sharedGameLayer._roadLength;
         var roadLengthShown = winSize.width - locRoad.x;
-        var cactus = Cactus.getOrCreateCactus(cactusType);
-        cactus.x = roadLengthShown;
-        // cactus.x = roadLengthShown + Math.random() * (locRoadLength - roadLengthShown);
-        g_sharedGameLayer.addCactus(cactus);
+        // obstacle.x = roadLengthShown;
+        obstacle.x = roadLengthShown + (Math.random() * (locRoadLength - roadLengthShown));
+        g_sharedGameLayer.addObstacle(obstacle);
         this.lastObstacleShown = false;
-
-        g_sharedGameLayer.distSinceLastObstacle = 0;
-        this.count++;
     }
 });

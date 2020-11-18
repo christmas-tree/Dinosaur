@@ -8,7 +8,7 @@ var CactusType = {
             "cac_big_2.png"
         ]
     },
-    mutli: {
+    multi: {
         textureName: ["multi_cac.png"],
     },
 };

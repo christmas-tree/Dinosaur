@@ -5,7 +5,6 @@ var Cloud = cc.Sprite.extend({
         this.anchorX = 0;
         this.anchorY = 0;
         this.y = MW.MIN_CLOUD_HEIGHT + Math.floor(Math.random() * (MW.MIN_CLOUD_HEIGHT - MW.MAX_CLOUD_HEIGHT));
-        this.x = cc.director.getWinSize().width;
     },
     destroy: function () {
         this.visible = false;
@@ -26,8 +25,6 @@ Cloud.getOrCreate = function () {
         if (selChild.active === false) {
             selChild.visible = true;
             selChild.active = true;
-            this.y = MW.MIN_CLOUD_HEIGHT + Math.floor(Math.random() * (MW.MIN_CLOUD_HEIGHT - MW.MAX_CLOUD_HEIGHT));
-            this.x = cc.director.getWinSize().width;
             return selChild;
         }
     }
@@ -46,45 +43,57 @@ Cloud.preSet = function () {
 };
 
 
-var ScrollingBackground = cc.Layer.extend({
+var ScrollingBackground = cc.Sprite.extend({
     active: false,
+
     ctor: function () {
         this._super();
-        this.width = winSize.width;
-        var randNum = Math.floor(Math.random() * 3);
-        for (var i = 0; i < randNum; i++) {
-            this.addChild(Cloud.getOrCreate());
-        }
-
+        this.width = winSize.width * 2;
         this.anchorX = 0;
+        this.anchorY = 0;
     },
-    destroy: function() {
+    destroy: function () {
         this.active = false;
         this.visible = false;
+        var children = this.getChildren();
+        var selChild;
+        for (var i = children.length - 1; i >= 0; i++) {
+            selChild = children[i];
+            selChild.destroy();
+            this.removeChild(selChild);
+        }
     }
 })
 
-ScrollingBackground.create = function() {
+ScrollingBackground.create = function () {
     var background = new ScrollingBackground();
     MW.CONTAINER.BACKGROUND.push(background);
     g_sharedGameLayer.addChild(background, -10);
-    cc.log("Creating: anchorX = " + background.anchorX);
     return background;
 };
 
-ScrollingBackground.getOrCreate = function() {
-    var selChild = null;
+ScrollingBackground.getOrCreate = function () {
+    var background = null;
     for (var i = 0; i < MW.CONTAINER.BACKGROUND.length; i++) {
-        selChild = MW.CONTAINER.BACKGROUND[i];
-        if (selChild.active === false) {
-            selChild.visible = true;
-            selChild.active = true;
-            cc.log("Getting: anchorX = " + selChild.anchorX);
-            return selChild;
+        background = MW.CONTAINER.BACKGROUND[i];
+        if (background.active === false) {
+            background.visible = true;
+            background.active = true;
         }
     }
-    selChild = ScrollingBackground.create();
-    return selChild;
+    if (!background)
+        background = ScrollingBackground.create();
+
+    // Add clouds to background
+    var randNum = Math.floor(Math.random() * 4);
+    var cloud;
+    for (var i = 0; i < randNum; i++) {
+        cloud = Cloud.getOrCreate();
+        cloud.x = winSize.width - background.x;
+        cloud.y = MW.MIN_CLOUD_HEIGHT + Math.floor(Math.random() * (MW.MIN_CLOUD_HEIGHT - MW.MAX_CLOUD_HEIGHT));
+        background.addChild(cloud);
+    }
+    return background;
 };
 
 ScrollingBackground.preSet = function () {

@@ -32,7 +32,7 @@ cc.game.onStart = function () {
         gv.gameClient = new GameClient();
         gv.poolObjects = new PoolObject();
 
-        fr.view(ScreenMenu)
+        fr.view(GameLayer)
         // var scene = new cc.Scene();
         // scene.addChild(ScreenMenu);
         // cc.director.runScene(new cc.TransitionFade(1.2, scene));
