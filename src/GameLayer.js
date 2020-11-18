@@ -37,10 +37,7 @@ var GameLayer = cc.Layer.extend({
         MW.SCORE = 0;
         this._levelManager = new LevelManager(this);
 
-        // this.screenRect = cc.rect(0, 0, winSize.width, winSize.height + 10);
-
         // score label
-        // this.lbScore = cc.LabelTTF.create("0", "Arial Bold", 32, null, cc.TEXT_ALIGNMENT_RIGHT, cc.VERTICAL_TEXT_ALIGNMENT_TOP);
         this.lbScore = cc.LabelTTF.create("0", "Press Start 2P Regular", 32, null, cc.TEXT_ALIGNMENT_RIGHT, cc.VERTICAL_TEXT_ALIGNMENT_TOP);
         this.lbScore.attr({
             x: winSize.width - 350,
@@ -51,7 +48,6 @@ var GameLayer = cc.Layer.extend({
         });
         this.addChild(this.lbScore, 1000);
 
-        // this.lbHighScore = cc.LabelTTF.create("0", "Arial Bold", 32, null, cc.TEXT_ALIGNMENT_RIGHT, cc.VERTICAL_TEXT_ALIGNMENT_TOP);
         this.lbHighScore = cc.LabelTTF.create("0", "Press Start 2P Regular", 32, null, cc.TEXT_ALIGNMENT_RIGHT, cc.VERTICAL_TEXT_ALIGNMENT_TOP);
         this.lbHighScore.attr({
             x: this.lbScore.x - this.lbScore.width - 60,
