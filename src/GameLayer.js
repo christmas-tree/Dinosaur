@@ -38,7 +38,7 @@ var GameLayer = cc.Layer.extend({
         this._levelManager = new LevelManager(this);
 
         // score label
-        this.lbScore = cc.LabelTTF.create("0", "Press Start 2P Regular", 32, null, cc.TEXT_ALIGNMENT_RIGHT, cc.VERTICAL_TEXT_ALIGNMENT_TOP);
+        this.lbScore = cc.LabelTTF.create(String(MW.SCORE), "Press Start 2P Regular", 32, null, cc.TEXT_ALIGNMENT_RIGHT, cc.VERTICAL_TEXT_ALIGNMENT_TOP);
         this.lbScore.attr({
             x: winSize.width - 350,
             y: winSize.height - 200,
@@ -48,7 +48,7 @@ var GameLayer = cc.Layer.extend({
         });
         this.addChild(this.lbScore, 1000);
 
-        this.lbHighScore = cc.LabelTTF.create("0", "Press Start 2P Regular", 32, null, cc.TEXT_ALIGNMENT_RIGHT, cc.VERTICAL_TEXT_ALIGNMENT_TOP);
+        this.lbHighScore = cc.LabelTTF.create(String(MW.HIGH_SCORE), "Press Start 2P Regular", 32, null, cc.TEXT_ALIGNMENT_RIGHT, cc.VERTICAL_TEXT_ALIGNMENT_TOP);
         this.lbHighScore.attr({
             x: this.lbScore.x - this.lbScore.width - 60,
             y: winSize.height - 200,
@@ -131,7 +131,7 @@ var GameLayer = cc.Layer.extend({
     update: function (dt) {
         if (this._state === STATE_PLAYING) {
             this.checkIsCollide();
-            this._movingBackground(dt);
+            // this._movingBackground(dt);
             this._movingRoad(dt);
             this._road.removeInactiveUnit();
             this.updateScore();
@@ -235,7 +235,8 @@ var GameLayer = cc.Layer.extend({
 
         if (this._road.lastObstacle &&
             this._road.lastObstacle.x + this._road.x <= winSize.width
-            && !this.lastObstacleShown) {
+            && !this.lastObstacleShown)
+        {
             this.distSinceLastObstacle = 0;
             this.lastObstacleShown = true;
         } else {
@@ -272,6 +273,7 @@ var GameLayer = cc.Layer.extend({
     onGameOver: function () {
         // cc.audioEngine.stopMusic();
         // cc.audioEngine.stopAllEffects();
+        cc.convertTo
         this.unscheduleAllCallbacks();
         this._gameOverLayer = new GameOverLayer();
         this.addChild(this._gameOverLayer);

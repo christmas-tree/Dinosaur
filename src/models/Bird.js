@@ -11,6 +11,9 @@ var Bird = cc.Sprite.extend({
         var birdAnimation = cc.animate(new cc.Animation(birdFrames, 0.1));
 
         this.runAction(birdAnimation.repeatForever());
+
+        COUNT++;
+        this.count = COUNT;
     },
     destroy: function () {
         this.active = false;

@@ -3,7 +3,7 @@ var winSize = cc.director.getWinSize();
 
 //score
 MW.SCORE = 0;
-MW.HIGH_SCORE = 0;
+MW.HIGH_SCORE = 500;
 
 //sound
 MW.SOUND = true;
@@ -35,7 +35,7 @@ MW.GRAVITY = -4000
 MW.JUMP_INIT_VELOCITY = 1250
 MW.DROP_VELOCITY = -3000
 
-MW.OBSTACLE_DIST = 300
+MW.OBSTACLE_DIST = 100
 
 MW.APPEAR_POSITION = [100, winSize.height/3]
 MW.MIN_CLOUD_HEIGHT = 100

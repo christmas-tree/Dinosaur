@@ -20,6 +20,7 @@ var LevelManager = cc.Class.extend({
 
     loadLevelResource: function () {
         if (g_sharedGameLayer.distSinceLastObstacle < MW.OBSTACLE_DIST) {
+            cc.log("Trying to add, but dist is " + g_sharedGameLayer.distSinceLastObstacle);
             return;
         }
 
@@ -50,9 +51,9 @@ var LevelManager = cc.Class.extend({
     addObstacleToRoad: function (obstacle) {
         var locRoad = g_sharedGameLayer._road, locRoadLength = g_sharedGameLayer._roadLength;
         var roadLengthShown = winSize.width - locRoad.x;
-        // obstacle.x = roadLengthShown;
-        obstacle.x = roadLengthShown + (Math.random() * (locRoadLength - roadLengthShown));
+        obstacle.x = roadLengthShown;
+        // obstacle.x = roadLengthShown + (Math.random() * (locRoadLength - roadLengthShown));
         g_sharedGameLayer.addObstacle(obstacle);
-        this.lastObstacleShown = false;
+        cc.log("Added obs " + obstacle.count);
     }
 });

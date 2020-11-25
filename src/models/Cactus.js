@@ -1,4 +1,6 @@
 // Cactus
+COUNT = 0;
+
 var Cactus = cc.Sprite.extend({
     type: MW.CACTUS_TYPE_DEFAULT,
     active: true,
@@ -12,6 +14,8 @@ var Cactus = cc.Sprite.extend({
         this.anchorY = 0;
         this.x = winSize.width;
         this.y = 0;
+        COUNT++;
+        this.count = COUNT;
     },
     destroy: function () {
         this.active = false;
